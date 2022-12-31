@@ -6,13 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-@AllArgsConstructor
 @Getter
 @Setter
-public class Amenity {
+@AllArgsConstructor
+public class Category {
+
     private String name;
-    private double distance;
-    private String type;
-
-
 }

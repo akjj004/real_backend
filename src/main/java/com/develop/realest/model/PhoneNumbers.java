@@ -6,13 +6,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-@AllArgsConstructor
 @Getter
 @Setter
-public class Amenity {
-    private String name;
-    private double distance;
-    private String type;
-
-
+@AllArgsConstructor
+public class PhoneNumbers {
+    private String mobile;
+    private String phone;
+    private String whatsapp;
 }
