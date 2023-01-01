@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/properties")
@@ -22,6 +23,7 @@ public class PropertiesController {
     public Property fetchPropertyById(@PathVariable String id){
         return propertyService.getPropertyById(id);
     }
+
     @PostMapping
     public Property createProperty(@RequestBody Property property){
         return propertyService.createProperty(property);
@@ -35,4 +37,11 @@ public class PropertiesController {
         propertyService.deleteProperty(id);
         return ResponseEntity.noContent().build();
     }
+
+
+    @GetMapping("/findByRooms")
+    public List<Property> findByRooms(@RequestParam int rooms) {
+        return propertyService.findByRooms(rooms);
+    }
+
 }

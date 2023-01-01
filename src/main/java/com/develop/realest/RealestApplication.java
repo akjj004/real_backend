@@ -24,6 +24,7 @@ public class RealestApplication {
             Location location = new Location(40.7128, -74.0060);
             Amenity amenity = new Amenity("school",0.5,"school");
             PhoneNumbers phoneNumbers = new PhoneNumbers("+971589159379","+971589159379","971589159379");
+            Category category = new Category("Apartment");
             Property property =  new Property(
                     address,
                     2000,
@@ -36,6 +37,7 @@ public class RealestApplication {
                     "Jhon Titor",
                     "furnished",
                     true,
+                    List.of(category),
                     details,
                     List.of("https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2680&q=80",
                             "https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1921&q=80",

@@ -8,6 +8,7 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -49,5 +50,9 @@ public class PropertyService {
         Property propertyToDelete = propertyRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Property not found with id: " + id));
         propertyRepository.delete(propertyToDelete);
+    }
+
+    public List<Property> findByRooms(int rooms) {
+        return propertyRepository.findByRooms(rooms);
     }
 }
