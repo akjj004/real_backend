@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +53,39 @@ public class PropertyService {
         propertyRepository.delete(propertyToDelete);
     }
 
-    public List<Property> findByRooms(int rooms) {
-        return propertyRepository.findByRooms(rooms);
+
+    public List<Property> findBy(Integer location, Integer category, Integer rooms,Integer minPrice, Integer maxPrice, Integer minSquareFootage, Integer maxSquareFootage) {
+        List<Property> results = new ArrayList<>();
+
+        // Retrieve all properties from the repository
+        List<Property> properties = propertyRepository.findAll();
+
+        // Filter the properties by the provided criteria
+        for (Property property : properties) {
+            if (location != null && !location.equals(property.getLocation())) {
+                continue;
+            }
+            if (category != null && !category.equals(property.getCategory())) {
+                continue;
+            }
+            if (rooms != null && property.getRooms() != rooms) {
+                continue;
+            }
+            if (minPrice != null && property.getPrice() < minPrice) {
+                continue;
+            }
+            if (maxPrice != null && property.getPrice() > maxPrice) {
+                continue;
+            }
+            if (minSquareFootage != null && property.getSquareFootage() < minSquareFootage) {
+                continue;
+            }
+            if (maxSquareFootage != null && property.getSquareFootage() > maxSquareFootage) {
+                continue;
+            }
+            results.add(property);
+        }
+
+        return results;
     }
 }

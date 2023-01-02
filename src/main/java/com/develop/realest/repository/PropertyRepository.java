@@ -9,5 +9,5 @@ import java.util.Optional;
 
 public interface PropertyRepository extends MongoRepository<Property, String> {
 
-    List<Property> findByRooms(int rooms);
+
 }
